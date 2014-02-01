@@ -20,14 +20,13 @@ public class Activity1 extends Activity {
 		textView = (TextView) findViewById(R.id.textView1);
 		button = (Button) findViewById(R.id.button1);
 		button2 = (Button) findViewById(R.id.button2);
-
+		button2.setVisibility(View.INVISIBLE);  
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				i++;
 				if(i==1){
 					
-					button2.setWidth(50);
-					button2.setHeight(200);
+					button2.setVisibility(View.VISIBLE);  
 					button.setText("タ");
 				 }
 				textView.setText(String.valueOf(i));
@@ -36,11 +35,15 @@ public class Activity1 extends Activity {
 		});
 		button2.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				if(i==100)
+				if(i>0)
 				{
-					textView.setText("北斗百裂拳");
-				}else{
-					textView.setText(String.valueOf(i));
+					i++;
+					if(i==100)
+					{
+						textView.setText("北斗百裂拳");
+					}else{
+						textView.setText("北斗"+String.valueOf(i)+"裂拳");
+					}
 				}
 			}
 			
